@@ -1,4 +1,4 @@
-package main.productos;
+package modelos.productos;
 
 /** Enumeración con los datos de los productos disponibles en un expendedor */
 public enum InfoProducto {

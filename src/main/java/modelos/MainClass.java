@@ -1,11 +1,10 @@
-package main;
+package modelos;
 
-import main.monedas.Moneda;
-import main.monedas.Moneda1000;
-import main.monedas.Moneda1500;
-import main.objetos.Comprador;
-import main.objetos.Expendedor;
-import main.productos.InfoProducto;
+import modelos.monedas.Moneda;
+import modelos.monedas.Moneda1000;
+import modelos.monedas.Moneda1500;
+import modelos.objetos.Comprador;
+import modelos.objetos.Expendedor;
 
 public class MainClass {
     public static void main(String[] args) {

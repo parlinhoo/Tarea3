@@ -1,10 +1,25 @@
-package main.objetos;
+package modelos.objetos;
 
 import main.*;
 import main.monedas.*;
 import main.productos.*;
 import main.productos.bebidas.*;
 import main.productos.dulces.*;
+import modelos.NoHayProductoException;
+import modelos.PagoIncorrectoException;
+import modelos.PagoInsuficienteException;
+import modelos.monedas.Moneda;
+import modelos.monedas.Moneda100;
+import modelos.productos.InfoProducto;
+import modelos.productos.Producto;
+import modelos.productos.bebidas.Bebida;
+import modelos.productos.bebidas.CocaCola;
+import modelos.productos.bebidas.Fanta;
+import modelos.productos.bebidas.Sprite;
+import modelos.productos.dulces.Dulce;
+import modelos.productos.dulces.Snickers;
+import modelos.productos.dulces.Super8;
+
 /**
  * Expendedor en el que se puede comprar un producto entre 5 variedaes
  * @author Bastián Ceballos Z.

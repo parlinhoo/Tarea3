@@ -1,15 +1,15 @@
-package main;
+package modelos;
 /**
- * Excepción personalizada para cuando el pago no es el indicado.
+ * Excepción personalizada para cuando no hay un producto disponible.
  * @author Bastián Ceballos Z.
  * @author Fabián González U.
  */
-public class PagoIncorrectoException extends Exception{
+public class NoHayProductoException extends Exception{
     /**
      * Constructor que recibe un String
      * @param errorMessage Mensaje que describe el la razón del error
      */
-    public PagoIncorrectoException(String errorMessage){
+    public NoHayProductoException(String errorMessage) {
         super(errorMessage);
     }
 }

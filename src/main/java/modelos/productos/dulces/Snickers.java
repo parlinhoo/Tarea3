@@ -1,4 +1,4 @@
-package main.productos.dulces;
+package modelos.productos.dulces;
 /**
  * Clase heredera de Dulce, representa un dulce Snickers
  * @author Bastián Ceballos Z.

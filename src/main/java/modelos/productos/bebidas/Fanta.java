@@ -1,20 +1,20 @@
-package main.productos.bebidas;
+package modelos.productos.bebidas;
 /**
- * Clase heredera de Bebida, representa una bebida Sprite
+ * Clase heredera de Bebida, representa una bebida Fanta
  * @author Bastián Ceballos Z.
  * @author Fabián González U.
  * @see Bebida
  */
-public class Sprite extends Bebida {
+public class Fanta extends Bebida {
     /**
      * Implementación de consumir()
-     * @return El String "sprite"
+     * @return El String "fanta"
      */
     @Override
-    public String consumir() {return "sprite";}
+    public String consumir() {return "fanta";}
     /**
      * Constructor por defecto en el que se pasa como parametro la serie del producto
      * @param serie Serie del producto
      */
-    public Sprite(int serie) {super(serie);}
+    public Fanta(int serie) {super(serie);}
 }

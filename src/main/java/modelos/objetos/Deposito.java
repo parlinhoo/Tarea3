@@ -1,4 +1,4 @@
-package main.objetos;
+package modelos.objetos;
 
 import java.util.ArrayList;
 /**

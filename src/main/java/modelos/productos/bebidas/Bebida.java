@@ -1,15 +1,16 @@
-package main.productos.dulces;
+package modelos.productos.bebidas;
 
-import main.productos.Producto;
+import modelos.productos.Producto;
+
 /**
- * Dulces polimorfica
+ * Bebida polimorfica
  * @author Bastián Ceballos Z.
  * @author Fabián González U.
  */
-public abstract class Dulce extends Producto {
+public abstract class Bebida extends Producto {
     /**
      * Constructor por defecto en el que se pasa como parametro la serie del producto
      * @param serie Serie del producto
      */
-    public Dulce(int serie) {super(serie);}
+    public Bebida(int serie) {super(serie);}
 }

@@ -1,4 +1,4 @@
-package main.productos.bebidas;
+package modelos.productos.bebidas;
 /**
  * Clase heredera de Bebida, representa una bebida Cocacola
  * @author Bastián Ceballos Z.

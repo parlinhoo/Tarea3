@@ -1,18 +1,19 @@
-package main.monedas;
+package modelos.monedas;
 /**
- * Moneda con valor 500, sirve como metodo de pago
+ * Moneda con valor 100, sirve como metodo de pago
  * Clase heredera de Moneda
  * @author Bastián Ceballos Z.
  * @author Fabián González U.
  * @see Moneda
  */
-public class Moneda500 extends Moneda {
+public class Moneda100 extends Moneda {
     /**
      * Getter del valor de la moneda
-     * @return 500
+     * @return 100
      */
     @Override
-    public int getValor() {return 500;}
+    public int getValor() {return 100;}
+
     /** Constructor por defecto */
-    public Moneda500() {super();}
+    public Moneda100() {super();}
 }

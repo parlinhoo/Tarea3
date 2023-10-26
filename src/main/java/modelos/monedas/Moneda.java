@@ -1,4 +1,4 @@
-package main.monedas;
+package modelos.monedas;
 
 /**
  * Monedas polimorficas que sirven como metodo de pago

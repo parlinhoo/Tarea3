@@ -1,13 +1,15 @@
 package maintest;
 
+import modelos.NoHayProductoException;
+import modelos.PagoIncorrectoException;
+import modelos.PagoInsuficienteException;
+import modelos.monedas.*;
+import modelos.objetos.Expendedor;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 
 import main.*;
-import main.objetos.*;
-import main.monedas.*;
-import main.productos.*;
 
 public class ExpendedorTest {
 

@@ -1,4 +1,4 @@
-package main;
+package modelos;
 /**
  * Excepción personalizada para cuando el pago es insuficiente
  * @author Bastián Ceballos Z.

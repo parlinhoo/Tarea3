@@ -1,20 +1,20 @@
-package main.productos.bebidas;
+package modelos.productos.dulces;
 /**
- * Clase heredera de Bebida, representa una bebida Fanta
+ * Clase heredera de Dulce, representa un dulce Super8
  * @author Bastián Ceballos Z.
  * @author Fabián González U.
- * @see Bebida
+ * @see Dulce
  */
-public class Fanta extends Bebida {
+public class Super8 extends Dulce{
     /**
      * Implementación de consumir()
-     * @return El String "fanta"
+     * @return El String "super8"
      */
     @Override
-    public String consumir() {return "fanta";}
+    public String consumir() {return "super8";}
     /**
      * Constructor por defecto en el que se pasa como parametro la serie del producto
      * @param serie Serie del producto
      */
-    public Fanta(int serie) {super(serie);}
+    public Super8(int serie) {super(serie);}
 }

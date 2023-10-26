@@ -1,4 +1,4 @@
-package main.productos;
+package modelos.productos;
 /**
  * Productos polimorficos que pueden ser comprados en un expendedor
  * @author Bastián Ceballos Z.

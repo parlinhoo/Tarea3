@@ -1,10 +1,10 @@
-package main.objetos;
+package modelos.objetos;
 
-import main.NoHayProductoException;
-import main.PagoIncorrectoException;
-import main.PagoInsuficienteException;
-import main.productos.Producto;
-import main.monedas.Moneda;
+import modelos.NoHayProductoException;
+import modelos.PagoIncorrectoException;
+import modelos.PagoInsuficienteException;
+import modelos.productos.Producto;
+import modelos.monedas.Moneda;
 
 /**
  * Comprador usuario de un Expendedor
