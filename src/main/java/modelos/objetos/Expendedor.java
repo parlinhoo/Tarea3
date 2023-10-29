@@ -22,6 +22,8 @@ import modelos.productos.dulces.Super8;
  */
 
 public class Expendedor {
+    /** Deposito Especial de salida */
+    private Producto DepositoSalida;
     /** Deposito de CocaCola */
     private Deposito<Bebida> coca;
     /** Deposito de Sprite */
@@ -34,6 +36,8 @@ public class Expendedor {
     private Deposito<Dulce> super8;
     /** Deposito de monedas */
     private Deposito<Moneda> monVu;
+    /** Deposito de ganancias 8 */
+    private Deposito<Moneda> Ganancias;
 
     /**
      * Devuelve el vuelto de la compra
@@ -51,7 +55,7 @@ public class Expendedor {
      * @throws NoHayProductoException
      * @see Moneda
      */
-    public Producto comprarProducto(Moneda moneda, int producto) throws PagoIncorrectoException, PagoInsuficienteException, NoHayProductoException {
+    public Void comprarProducto(Moneda moneda, int producto) throws PagoIncorrectoException, PagoInsuficienteException, NoHayProductoException {
         if (moneda == null) {
             throw new PagoIncorrectoException("Se esperaba una moneda, se obtuvo null");
         }
@@ -88,7 +92,14 @@ public class Expendedor {
         for (int i = 0; i < vuelto; i += 100) {
             monVu.add(new Moneda100());
         }
-        return selProducto;
+        Ganancias.add(moneda);
+        DepositoSalida = selProducto;
+    }
+
+    public Producto getProducto(){
+        Producto aux = DepositoSalida;
+        DepositoSalida = null;
+        return aux;
     }
 
     /**
@@ -96,6 +107,7 @@ public class Expendedor {
      * @param cantidadProd
      */
     public Expendedor(int cantidadProd) {
+        this.DepositoSalida = null;
         this.coca = new Deposito<Bebida>();
         this.fanta = new Deposito<Bebida>();
         this.sprite = new Deposito<Bebida>();
