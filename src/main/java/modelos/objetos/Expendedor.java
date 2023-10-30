@@ -5,20 +5,6 @@ import modelos.monedas.*;
 import modelos.productos.*;
 import modelos.productos.bebidas.*;
 import modelos.productos.dulces.*;
-import modelos.NoHayProductoException;
-import modelos.PagoIncorrectoException;
-import modelos.PagoInsuficienteException;
-import modelos.monedas.Moneda;
-import modelos.monedas.Moneda100;
-import modelos.productos.InfoProducto;
-import modelos.productos.Producto;
-import modelos.productos.bebidas.Bebida;
-import modelos.productos.bebidas.CocaCola;
-import modelos.productos.bebidas.Fanta;
-import modelos.productos.bebidas.Sprite;
-import modelos.productos.dulces.Dulce;
-import modelos.productos.dulces.Snickers;
-import modelos.productos.dulces.Super8;
 
 /**
  * Expendedor en el que se puede comprar un producto entre 5 variedaes
@@ -27,6 +13,8 @@ import modelos.productos.dulces.Super8;
  */
 
 public class Expendedor {
+    /** Deposito Especial de salida */
+    private Producto DepositoSalida;
     /** Deposito de CocaCola */
     private Deposito<Bebida> coca;
     /** Deposito de Sprite */
@@ -39,6 +27,8 @@ public class Expendedor {
     private Deposito<Dulce> super8;
     /** Deposito de monedas */
     private Deposito<Moneda> monVu;
+    /** Deposito de ganancias 8 */
+    private Deposito<Moneda> Ganancias;
 
     /**
      * Devuelve el vuelto de la compra
@@ -56,7 +46,7 @@ public class Expendedor {
      * @throws NoHayProductoException
      * @see Moneda
      */
-    public Producto comprarProducto(Moneda moneda, int producto) throws PagoIncorrectoException, PagoInsuficienteException, NoHayProductoException {
+    public Void comprarProducto(Moneda moneda, int producto) throws PagoIncorrectoException, PagoInsuficienteException, NoHayProductoException {
         if (moneda == null) {
             throw new PagoIncorrectoException("Se esperaba una moneda, se obtuvo null");
         }
@@ -93,7 +83,14 @@ public class Expendedor {
         for (int i = 0; i < vuelto; i += 100) {
             monVu.add(new Moneda100());
         }
-        return selProducto;
+        Ganancias.add(moneda);
+        DepositoSalida = selProducto;
+    }
+
+    public Producto getProducto(){
+        Producto aux = DepositoSalida;
+        DepositoSalida = null;
+        return aux;
     }
 
     /**
@@ -101,6 +98,7 @@ public class Expendedor {
      * @param cantidadProd
      */
     public Expendedor(int cantidadProd) {
+        this.DepositoSalida = null;
         this.coca = new Deposito<Bebida>();
         this.fanta = new Deposito<Bebida>();
         this.sprite = new Deposito<Bebida>();
