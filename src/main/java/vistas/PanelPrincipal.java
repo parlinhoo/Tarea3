@@ -16,10 +16,10 @@ public class PanelPrincipal extends JPanel {
         this.setBackground(Color.white);
     }
 
+    @Override
     public void paint (Graphics g) {
         super.paint(g);
         exp.paint(g);
         com.paint(g);
-
     }
 }

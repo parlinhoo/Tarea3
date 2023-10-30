@@ -46,7 +46,7 @@ public class Expendedor {
      * @throws NoHayProductoException
      * @see Moneda
      */
-    public Void comprarProducto(Moneda moneda, int producto) throws PagoIncorrectoException, PagoInsuficienteException, NoHayProductoException {
+    public void comprarProducto(Moneda moneda, int producto) throws PagoIncorrectoException, PagoInsuficienteException, NoHayProductoException {
         if (moneda == null) {
             throw new PagoIncorrectoException("Se esperaba una moneda, se obtuvo null");
         }

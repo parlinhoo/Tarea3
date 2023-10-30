@@ -41,7 +41,8 @@ public class Comprador {
      * @see Expendedor
      */
     public Comprador(Moneda m, int cualProducto, Expendedor exp) throws PagoInsuficienteException, PagoIncorrectoException, NoHayProductoException {
-        Producto producto = exp.comprarProducto(m, cualProducto);
+        exp.comprarProducto(m, cualProducto);
+        Producto producto = exp.getProducto();
         if (producto != null) {this.producto = producto.consumir();}
         Moneda monedaV = exp.getVuelto();
         while (monedaV != null) {

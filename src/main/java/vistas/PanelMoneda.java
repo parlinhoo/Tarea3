@@ -11,28 +11,24 @@ public class PanelMoneda extends JPanel {
     public void paint(Graphics g) {
         super.paint(g);
         g.setColor(new Color(0x424242));
-        g.fillOval(Ventana.anchura/2 - radio, Ventana.altura/2 - radio, radio*2, radio*2);
+        g.fillOval((Ventana.anchura / 2) - radio, (Ventana.altura / 2) - radio, radio*2, radio*2);
     }
 
     public PanelMoneda() {
-        this.texto = new JLabel("$100", SwingConstants.CENTER);
-        this.add(this.texto);
+        this.setLayout(new BorderLayout());
+        this.setSize(Ventana.anchura, Ventana.altura);
+        this.texto = new JLabel("$100");
+        this.texto.setBounds((Ventana.anchura / 2) - radio, (Ventana.altura / 2) - radio, radio*2, radio*2);
+        this.add(this.texto, BorderLayout.CENTER);
     }
 
     public static void main(String[] args) {
-        Ventana ventana = new Ventana();
+        JFrame ventana = new JFrame();
+        ventana.setVisible(true);
+        ventana.setSize(Ventana.anchura, Ventana.altura);
+        ventana.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        PanelMoneda testpanel = new PanelMoneda();
+        ventana.add(testpanel);
     }
 }
 
-class Ventana extends JFrame {
-    public static int altura = 500;
-    public static int anchura = 500;
-    public Ventana(){
-        super();
-        this.setSize(anchura, altura);
-        this.setTitle("nashe");
-        this.setDefaultCloseOperation(EXIT_ON_CLOSE);
-        this.setVisible(true);
-        this.add(new PanelMoneda());
-    }
-}
