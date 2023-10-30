@@ -1,10 +1,10 @@
 package modelos.objetos;
 
-import main.*;
-import main.monedas.*;
-import main.productos.*;
-import main.productos.bebidas.*;
-import main.productos.dulces.*;
+import modelos.*;
+import modelos.monedas.*;
+import modelos.productos.*;
+import modelos.productos.bebidas.*;
+import modelos.productos.dulces.*;
 import modelos.NoHayProductoException;
 import modelos.PagoIncorrectoException;
 import modelos.PagoInsuficienteException;
