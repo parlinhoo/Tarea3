@@ -6,6 +6,8 @@ import modelos.productos.*;
 import modelos.productos.bebidas.*;
 import modelos.productos.dulces.*;
 
+import java.util.ArrayList;
+
 /**
  * Expendedor en el que se puede comprar un producto entre 5 variedaes
  * @author Bastián Ceballos Z.
@@ -28,7 +30,7 @@ public class Expendedor {
     /** Deposito de monedas */
     private Deposito<Moneda> monVu;
     /** Deposito de ganancias 8 */
-    private Deposito<Moneda> Ganancias;
+    private Deposito<Moneda> ganancias;
 
     /**
      * Devuelve el vuelto de la compra
@@ -83,7 +85,7 @@ public class Expendedor {
         for (int i = 0; i < vuelto; i += 100) {
             monVu.add(new Moneda100());
         }
-        Ganancias.add(moneda);
+        ganancias.add(moneda);
         DepositoSalida = selProducto;
     }
 
@@ -93,12 +95,23 @@ public class Expendedor {
         return aux;
     }
 
+    public ArrayList<Deposito<?>> getDepositos() {
+        ArrayList<Deposito<?>> Depositos = new ArrayList<>();
+        Depositos.add(coca);
+        Depositos.add(sprite);
+        Depositos.add(fanta);
+        Depositos.add(snickers);
+        Depositos.add(super8);
+        return Depositos;
+    }
+
     /**
      * Constructor en que se llenan los depositos de cada producto con la cantidad pasada como parametro
      * @param cantidadProd
      */
     public Expendedor(int cantidadProd) {
         this.DepositoSalida = null;
+        this.ganancias = new Deposito<Moneda>();
         this.coca = new Deposito<Bebida>();
         this.fanta = new Deposito<Bebida>();
         this.sprite = new Deposito<Bebida>();

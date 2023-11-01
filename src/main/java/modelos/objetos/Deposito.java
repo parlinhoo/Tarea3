@@ -25,6 +25,15 @@ public class Deposito<type> {
         else return null;
     }
 
+    /**
+     * Permite acceder a un elemento sin modificar el deposito
+     * @return Un item si el ArrayList no está vacio, en caso contrario, retorna null
+     */
+    public type ver(int i) {
+        if (!this.arrayList.isEmpty()) return this.arrayList.get(i);
+        else return null;
+    }
+
     /**Constructor por defecto */
     public Deposito() {this.arrayList = new ArrayList<>();}
 }
