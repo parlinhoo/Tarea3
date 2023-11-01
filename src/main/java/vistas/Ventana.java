@@ -9,11 +9,10 @@ public class Ventana extends JFrame {
     private PanelPrincipal panelPrincipal;
 
     public Ventana(){
-        super();
+        super("Tarea 3");
         this.setLayout(new BorderLayout());
         panelPrincipal = new PanelPrincipal();
         this.add(panelPrincipal, BorderLayout.CENTER);
-        this.setTitle("Tarea 3");
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         this.setSize(Ventana.anchura,Ventana.altura);
         this.setVisible(true);

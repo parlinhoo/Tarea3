@@ -4,22 +4,22 @@ import java.awt.*;
 
 public class PanelPrincipal extends JPanel {
 
-    private PanelComprador com;
-    private PanelExpendedor exp;
+    private PanelComprador compradorPanel;
+    private PanelExpendedor expendedorPanel;
 
     public PanelPrincipal () {
-        com = new PanelComprador();
-        exp = new PanelExpendedor ();
+        compradorPanel = new PanelComprador();
+        expendedorPanel = new PanelExpendedor();
         this.setLayout(new GridLayout(1, 2));
-        this.add(com);
-        this.add(exp);
+        this.add(compradorPanel);
+        this.add(expendedorPanel);
         this.setBackground(Color.white);
     }
 
     @Override
     public void paint (Graphics g) {
         super.paint(g);
-        exp.paint(g);
-        com.paint(g);
+        expendedorPanel.paint(g);
+        compradorPanel.paint(g);
     }
 }
