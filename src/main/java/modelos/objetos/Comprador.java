@@ -16,6 +16,7 @@ public class Comprador {
     private String producto;
     /** Entero para almacenar el vuelto que se recibe al comprar en el expendedor */
     private int vuelto = 0;
+    private int serie = 0;
 
     /**
      * Getter del valor del vuelto
@@ -28,6 +29,7 @@ public class Comprador {
      * @return String propio de lo consumido
      */
     public String queConsumiste() {return producto;}
+    public int getSerie() {return this.serie;}
 
     /**
      * Constructor en el que se intenta comprar en un expendedor con una moneda, si la compra es exitosa, se consume lo comprado, y se recibe el vuelto, guardando ambas varibales
@@ -43,7 +45,10 @@ public class Comprador {
     public Comprador(Moneda m, int cualProducto, Expendedor exp) throws PagoInsuficienteException, PagoIncorrectoException, NoHayProductoException {
         exp.comprarProducto(m, cualProducto);
         Producto producto = exp.getProducto();
-        if (producto != null) {this.producto = producto.consumir();}
+        if (producto != null) {
+            this.producto = producto.consumir();
+            this.serie = producto.getSerie();
+        }
         Moneda monedaV = exp.getVuelto();
         while (monedaV != null) {
             this.vuelto += monedaV.getValor();

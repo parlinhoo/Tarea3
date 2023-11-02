@@ -26,7 +26,6 @@ public class PanelMoneda extends JPanel {
         this.add(this.labelSerie);
         UtilsFrame.boundsPorcentual(this.labelSerie, 0.1, 0.6, 0.8, 0.2);
         this.setOpaque(false);
-        this.setVisible(true);
     }
 
     @Override
