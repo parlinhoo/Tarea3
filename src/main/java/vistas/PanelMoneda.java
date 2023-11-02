@@ -5,10 +5,12 @@ import java.awt.*;
 
 public class PanelMoneda extends JPanel {
     public static Font font = new Font("customDialog", Font.PLAIN, 10);
+    private final int valor;
     public final JLabel labelValor;
     public final JLabel labelSerie;
     public PanelMoneda(int ancho, int alto, int valor, String serie) {
         super();
+        this.valor = valor;
         this.setLayout(null);
         this.setSize(ancho, alto);
         this.labelValor = new JLabel(String.format("$%d", valor));
@@ -23,6 +25,7 @@ public class PanelMoneda extends JPanel {
         this.labelSerie.setVerticalAlignment(SwingConstants.CENTER);
         this.add(this.labelSerie);
         UtilsFrame.boundsPorcentual(this.labelSerie, 0.1, 0.6, 0.8, 0.2);
+        this.setOpaque(false);
         this.setVisible(true);
     }
 
@@ -30,7 +33,13 @@ public class PanelMoneda extends JPanel {
     public void paint(Graphics g) {
         double offsetScale = 0.03;
         super.paint(g);
-        g.setColor(Color.lightGray);
+        Color color = new Color(0xCD7F32);
+        switch (this.valor) {
+            case 500 -> color = Color.lightGray;
+            case 1000 -> color = Color.ORANGE;
+            case 1500 -> color = new Color(0xEEEEEE);
+        }
+        g.setColor(color);
         g.fillOval(0, 0, this.getWidth(), this.getHeight());
         g.setColor(Color.DARK_GRAY);
         g.drawOval(0, 0, this.getWidth(), this.getHeight());

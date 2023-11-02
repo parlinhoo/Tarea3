@@ -16,11 +16,11 @@ public class Ventana extends JFrame {
     public Ventana(){
         super("Tarea 3");
         this.expendedor = new Expendedor(10);
-        this.setLayout(new BorderLayout());
-        panelPrincipal = new PanelPrincipal();
-        this.add(panelPrincipal, BorderLayout.CENTER);
+        this.setLayout(null);
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
-        this.setSize(Ventana.anchura,Ventana.altura);
+        this.setSize(Ventana.anchura, Ventana.altura);
+        panelPrincipal = new PanelPrincipal(Ventana.anchura - 20, Ventana.altura - 20);
+        this.add(panelPrincipal);
         this.setVisible(true);
     }
 }
