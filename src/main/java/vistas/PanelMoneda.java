@@ -23,6 +23,7 @@ public class PanelMoneda extends JPanel {
         this.labelSerie.setVerticalAlignment(SwingConstants.CENTER);
         this.add(this.labelSerie);
         UtilsFrame.boundsPorcentual(this.labelSerie, 0.1, 0.6, 0.8, 0.2);
+        this.setVisible(true);
     }
 
     @Override
