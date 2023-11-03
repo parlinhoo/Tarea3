@@ -10,6 +10,8 @@ public class Deposito<type> {
     /** ArrayList que almacena los items*/
     private final ArrayList<type> arrayList;
 
+    private int vecesReabastecido;
+
     /**
      * Agrega un item al deposito
      * @param item item a agregar
@@ -34,6 +36,19 @@ public class Deposito<type> {
         else return null;
     }
 
+    public int getVecesReabastecido() {return vecesReabastecido;}
+
+    public int cuantasCosas(){return arrayList.size();}
+
+    public void setVecesReabastecido(int vecesReabastecido) {this.vecesReabastecido = vecesReabastecido;}
+
+    public void vaciar(){
+        arrayList.clear();
+    }
+
     /**Constructor por defecto */
-    public Deposito() {this.arrayList = new ArrayList<>();}
+    public Deposito() {
+        this.arrayList = new ArrayList<>();
+        this.vecesReabastecido = 0;
+    }
 }

@@ -32,6 +32,8 @@ public class Expendedor {
     /** Deposito de ganancias 8 */
     private Deposito<Moneda> ganancias;
 
+    private int cantidadProd;
+
     /**
      * Devuelve el vuelto de la compra
      * @return La misma moneda si no se pudo comprar o una moneda de 100 como sencillo de cambio
@@ -105,11 +107,70 @@ public class Expendedor {
         return Depositos;
     }
 
+    public void reabastecerDepositos() {
+        if (coca.ver(0) == null) {
+            coca.vaciar();
+            coca.setVecesReabastecido(coca.getVecesReabastecido() + 1);
+            for (int i = 0; i < cantidadProd; i++) {
+                coca.add(new CocaCola(100 + i + cantidadProd*coca.getVecesReabastecido()));
+            }
+        }else{
+            for (int i = coca.cuantasCosas()-1; i < cantidadProd; i++) {
+                coca.add(null);
+            }
+        }
+        if (sprite.ver(0) == null) {
+            sprite.vaciar();
+            sprite.setVecesReabastecido(sprite.getVecesReabastecido() + 1);
+            for (int i = 0; i < cantidadProd; i++) {
+                sprite.add(new Sprite(100 + i + cantidadProd*sprite.getVecesReabastecido()));
+            }
+        }else{
+            for (int i = sprite.cuantasCosas(); i < cantidadProd; i++) {
+                sprite.add(null);
+            }
+        }
+        if (fanta.ver(0) == null) {
+            fanta.vaciar();;
+            fanta.setVecesReabastecido(fanta.getVecesReabastecido() + 1);
+            for (int i = 0; i < cantidadProd; i++) {
+                fanta.add(new Fanta(100 + i + cantidadProd*fanta.getVecesReabastecido()));
+            }
+        }else{
+            for (int i = fanta.cuantasCosas(); i < cantidadProd; i++) {
+                fanta.add(null);
+            }
+        }
+        if (super8.ver(0) == null) {
+            super8.vaciar();
+            super8.setVecesReabastecido(super8.getVecesReabastecido() + 1);
+            for (int i = 0; i < cantidadProd; i++) {
+                super8.add(new Super8(100 + i + cantidadProd*super8.getVecesReabastecido()));
+            }
+        }else{
+            for (int i = super8.cuantasCosas(); i < cantidadProd; i++) {
+                super8.add(null);
+            }
+        }
+        if (snickers.ver(0) == null) {
+            snickers.vaciar();;
+            snickers.setVecesReabastecido(snickers.getVecesReabastecido() + 1);
+            for (int i = 0; i < cantidadProd; i++) {
+                snickers.add(new Snickers(100 + i + cantidadProd*snickers.getVecesReabastecido()));
+            }
+        }else{
+            for (int i = snickers.cuantasCosas(); i < cantidadProd; i++) {
+                snickers.add(null);
+            }
+        }
+    }
+
     /**
      * Constructor en que se llenan los depositos de cada producto con la cantidad pasada como parametro
      * @param cantidadProd
      */
     public Expendedor(int cantidadProd) {
+        this.cantidadProd = cantidadProd;
         this.DepositoSalida = null;
         this.ganancias = new Deposito<Moneda>();
         this.coca = new Deposito<Bebida>();
