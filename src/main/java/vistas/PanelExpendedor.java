@@ -23,8 +23,12 @@ public class PanelExpendedor extends JPanel {
     public PanelDepositos getDepositosPanel() {
         return this.DepositosPanel;
     }
+    public PanelGanancias getGananciasPanel() {
+        return this.GananciasPanel;
+    }
     private PanelSeleccion SeleccionPanel;
     private PanelSalida SalidaPanel;
+    private PanelGanancias GananciasPanel;
 
     public void ponerPanelEnSalida(JComponent panel) {
         this.SalidaPanel.setSalida(panel);
@@ -42,10 +46,12 @@ public class PanelExpendedor extends JPanel {
         this.SeleccionPanel = new PanelSeleccion();
         this.SeleccionPanel.panelExpendedor = this;
         this.SalidaPanel = new PanelSalida();
+        this.GananciasPanel = new PanelGanancias(exp);
         setLayout(new BorderLayout());
         add(DepositosPanel, BorderLayout.CENTER);
         add(SalidaPanel, BorderLayout.SOUTH);
-        add(SeleccionPanel, BorderLayout.EAST);
+        add(SeleccionPanel, BorderLayout.WEST);
+        add(GananciasPanel, BorderLayout.EAST);
         this.setVisible(true);
     }
 }

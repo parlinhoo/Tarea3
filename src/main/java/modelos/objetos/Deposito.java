@@ -46,6 +46,10 @@ public class Deposito<type> {
         arrayList.clear();
     }
 
+    public boolean estaVacio(){
+        return arrayList.isEmpty();
+    }
+
     /**Constructor por defecto */
     public Deposito() {
         this.arrayList = new ArrayList<>();
