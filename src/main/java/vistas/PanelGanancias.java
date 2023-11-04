@@ -1,5 +1,6 @@
 package vistas;
 
+import jdk.jshell.execution.Util;
 import modelos.monedas.*;
 import modelos.objetos.*;
 
@@ -22,9 +23,10 @@ public class PanelGanancias extends JPanel {
                 ultimasMonedas.add(moneda);
             }
         }
-        for (Moneda moneda : ultimasMonedas) {
-            PanelMoneda panelMoneda = new PanelMoneda(50, this.getHeight() / 10, moneda.getValor(), "");
-            add(panelMoneda);
+        for (int i = 0; i < ultimasMonedas.size(); i++) {
+            PanelMoneda panelMoneda = new PanelMoneda(this.getHeight() / 11, this.getHeight() / 11, ultimasMonedas.get(i).getValor(), "");
+            this.add(panelMoneda);
+            UtilsFrame.moverConCentroPorcentualAnchorPoint(panelMoneda, 0.5, 1, 0.5,(i+1)*0.1);
         }
         setPreferredSize(new Dimension(50, getHeight()));
         revalidate();
@@ -34,7 +36,7 @@ public class PanelGanancias extends JPanel {
     public PanelGanancias(Expendedor exp) {
         this.exp = exp;
         this.setBackground(Color.DARK_GRAY);
-        this.setLayout(new GridLayout(10, 1));
+        this.setLayout(null);
         actualizarGanancias();
     }
 }
