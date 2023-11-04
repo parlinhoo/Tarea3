@@ -3,11 +3,22 @@ package vistas;
 import javax.swing.*;
 import java.awt.*;
 
+/**
+ * PanelMoneda representa una moneda con su valor y serie.
+ */
 public class PanelMoneda extends JPanel {
     public static Font font = new Font("customDialog", Font.PLAIN, 10);
     private final int valor;
     public final JLabel labelValor;
     public final JLabel labelSerie;
+
+    /**
+     * Constructor para PanelMoneda. Inicializa el panel con el ancho, alto, valor y serie dados
+     * @param ancho El ancho del panel de moneda.
+     * @param alto  El alto del panel de moneda.
+     * @param valor El valor de la moneda.
+     * @param serie La serie de la moneda.
+     */
     public PanelMoneda(int ancho, int alto, int valor, String serie) {
         super();
         this.valor = valor;
@@ -28,6 +39,10 @@ public class PanelMoneda extends JPanel {
         this.setOpaque(false);
     }
 
+    /**
+     * Sobrescribe el método paint para personalizar el dibujo del panel de moneda.
+     * @param g
+     */
     @Override
     public void paint(Graphics g) {
         double offsetScale = 0.03;

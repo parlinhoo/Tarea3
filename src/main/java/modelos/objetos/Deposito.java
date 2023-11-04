@@ -7,9 +7,9 @@ import java.util.ArrayList;
  * @author Fabián González U.
  */
 public class Deposito<type> {
-    /** ArrayList que almacena los items*/
+    /** ArrayList que almacena los items */
     private final ArrayList<type> arrayList;
-
+    /** Entero que almacena representa cuantas veces ha sido reabastecido el deposito */
     private int vecesReabastecido;
 
     /**
@@ -35,19 +35,29 @@ public class Deposito<type> {
         if (!this.arrayList.isEmpty()) return this.arrayList.get(i);
         else return null;
     }
-
+    /**
+     * Getter de VecesReabastecido
+     * @return Numero de veces que el deposito ha sido reabastecido
+     */
     public int getVecesReabastecido() {return vecesReabastecido;}
 
-    public int cuantasCosas(){return arrayList.size();}
-
+    /**
+     *  Setter de VecesReabastecido
+     * @param vecesReabastecido
+     */
     public void setVecesReabastecido(int vecesReabastecido) {this.vecesReabastecido = vecesReabastecido;}
 
+    /**
+     * Permite saber la cantidad de cosas que tiene el deposito
+     * @return Tamaño del ArrayList interno
+     */
+    public int cuantasCosas(){return arrayList.size();}
+
+    /**
+     * Permite vaciar el deposito
+     */
     public void vaciar(){
         arrayList.clear();
-    }
-
-    public boolean estaVacio(){
-        return arrayList.isEmpty();
     }
 
     /**Constructor por defecto */

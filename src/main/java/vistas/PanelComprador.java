@@ -9,20 +9,29 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
 
+/**
+ * PanelComprador representa al comprador y permite a los usuarios realizar compras, retiros de productos y gestionar las monedas.
+ * Permite la interacción del usuario con el expendedor de productos, la selección de monedas, la compra de productos, el retiro de productos y el retiro del vuelto.
+ */
 public class PanelComprador extends JPanel {
     private int monedaSelec = 0;
-
     private InfoProducto productoEnMaquina = null;
-
     private int vuelto = 0;
     private PanelExpendedor expendedorActual;
+
+    /**
+     * Setea el expendedor asociado al PanelComprador
+     * @param exp Expendedor asociado
+     */
     public void setExpendedorActual(PanelExpendedor exp) {
         this.expendedorActual = exp;
     }
-    public int getMonedaSeleccionada() {
-        return this.monedaSelec;
-    }
 
+    /**
+     * Constructor para clase PanelComprador. Inicializa el panel del comprador con el ancho y alto dados.
+     * @param ancho El ancho del panel del comprador.
+     * @param alto  El alto del panel del comprador.
+     */
     public PanelComprador(int ancho, int alto){
         // PANEL COMPRADOR
         this.setLayout(null);
@@ -138,7 +147,7 @@ public class PanelComprador extends JPanel {
                         prod = producto;
                     }
                 }
-                VistaProducto vista = new VistaProducto(prod, comp.getSerie());
+                VistaProducto vista = new VistaProducto(prod);
                 this.expendedorActual.ponerPanelEnSalida(vista);
                 this.productoEnMaquina = prod;
                 this.vuelto = comp.cuantoVuelto();
@@ -166,7 +175,7 @@ public class PanelComprador extends JPanel {
             if (this.productoEnMaquina == null) return;
             JComponent panel = this.expendedorActual.obtenerPanelEnSalida();
             panel.getParent().remove(panel);
-            panelBolsillo.add(new VistaProducto(this.productoEnMaquina, 1));
+            panelBolsillo.add(new VistaProducto(this.productoEnMaquina));
             this.productoEnMaquina = null;
             this.expendedorActual.repaint();
             this.repaint();

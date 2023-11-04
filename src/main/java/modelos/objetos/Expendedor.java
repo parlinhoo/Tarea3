@@ -29,9 +29,9 @@ public class Expendedor {
     private Deposito<Dulce> super8;
     /** Deposito de monedas */
     private Deposito<Moneda> monVu;
-    /** Deposito de ganancias 8 */
+    /** Deposito de ganancias */
     private Deposito<Moneda> ganancias;
-
+    /** Entero que almacena la cantidad inicial de producto en cada deposito */
     private int cantidadProd;
 
     /**
@@ -91,12 +91,22 @@ public class Expendedor {
         DepositoSalida = selProducto;
     }
 
+    /**
+     * Saca el producto comprado de la bandeja de salida
+     * @return El porducto en la  bandeja de salida
+     * @see Producto
+     */
     public Producto getProducto(){
         Producto aux = DepositoSalida;
         DepositoSalida = null;
         return aux;
     }
 
+    /**
+     * Getter de los depositos de producto
+     * @return un ArrayList con todos los depositos de productos
+     * @see Deposito
+     */
     public ArrayList<Deposito<?>> getDepositos() {
         ArrayList<Deposito<?>> Depositos = new ArrayList<>();
         Depositos.add(coca);
@@ -107,10 +117,19 @@ public class Expendedor {
         return Depositos;
     }
 
+    /**
+     * Permite aceder al deposito de ganancias
+     * @return El deposito de ganancias
+     * @see Deposito
+     */
     public Deposito<Moneda> getGanancias() {
         return ganancias;
     }
 
+    /**
+     * Rellena los depositos de producto que estén vacíos, si un deposito no está vacio ni lleno, se rellena con null por conveniencia
+     * @see Deposito
+     */
     public void reabastecerDepositos() {
         if (coca.ver(0) == null) {
             coca.vaciar();

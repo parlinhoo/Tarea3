@@ -5,14 +5,16 @@ import modelos.productos.*;
 import javax.swing.*;
 import java.awt.*;
 
+/**
+ * Representación gráfica de un producto
+ * Esta clase extiende la clase JComponent
+ */
 public class VistaProducto extends JComponent {
 
     private InfoProducto info;
-    private int serie;
 
-    public VistaProducto(InfoProducto info, int serie) {
+    public VistaProducto(InfoProducto info) {
         this.info = info;
-        this.serie = serie;
         this.setPreferredSize(new Dimension(40, 70));
     }
 

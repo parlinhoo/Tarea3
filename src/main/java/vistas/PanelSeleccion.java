@@ -4,10 +4,17 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
 
+/**
+ * PanelSeleccion represebta el panel numerico que permite elegir un producto en ele expendedor
+ * Contiene botones para cada producto disponible y permite cambiar el producto seleccionado en el expendedor.
+ */
 public class PanelSeleccion extends JPanel {
 
     public PanelExpendedor panelExpendedor;
 
+    /**
+     * Constructor para la clase PanelSeleccion. Inicializa el panel con botones para seleccionar productos del expendedor.
+     */
     public PanelSeleccion(){
         this.setLayout(new GridLayout(5, 1));
         JButton cocacola = new JButton("1");

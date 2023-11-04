@@ -1,6 +1,5 @@
 package vistas;
 
-import jdk.jshell.execution.Util;
 import modelos.monedas.*;
 import modelos.objetos.*;
 
@@ -8,10 +7,17 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
 
+
+/**
+ * PanelGanancias muestra lo ganado en las ultimas 10 compras en el expendedor
+ */
 public class PanelGanancias extends JPanel {
 
     private Expendedor exp;
 
+    /**
+     * Actualiza las ganancias mostrando las últimas monedas ganadas en el panel.
+     */
     public void actualizarGanancias() {
         removeAll();
         Deposito<Moneda> ganancias = exp.getGanancias();
@@ -33,6 +39,10 @@ public class PanelGanancias extends JPanel {
         repaint();
     }
 
+    /**
+     * Constructor PanelGanancias.
+     * @param exp El expendedor del cual se mostrarán las ganancias.
+     */
     public PanelGanancias(Expendedor exp) {
         this.exp = exp;
         this.setBackground(Color.DARK_GRAY);
