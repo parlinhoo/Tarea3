@@ -107,6 +107,10 @@ public class Expendedor {
         return Depositos;
     }
 
+    public Deposito<Moneda> getGanancias() {
+        return ganancias;
+    }
+
     public void reabastecerDepositos() {
         if (coca.ver(0) == null) {
             coca.vaciar();

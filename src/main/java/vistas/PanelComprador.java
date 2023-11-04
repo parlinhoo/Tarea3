@@ -127,6 +127,7 @@ public class PanelComprador extends JPanel {
             }
             if (this.productoEnMaquina != null) return;
             try {
+<<<<<<< HEAD
                 panelVuelto.removeAll();
                 panelVuelto.repaint();
                 System.out.println("Intentando comprar la opción " + this.expendedorActual.getProducto() + " con una moneda de $" + moneda.getValor() + "...");
@@ -142,6 +143,8 @@ public class PanelComprador extends JPanel {
                 this.expendedorActual.ponerPanelEnSalida(vista);
                 this.productoEnMaquina = prod;
                 this.vuelto = comp.cuantoVuelto();
+                this.expendedorActual.getGananciasPanel().actualizarGanancias();
+                System.out.println("Compra exitosa: " + prod.name() + "(Serie " + comp.getSerie() + ")");
             } catch (Exception e) {
                 System.out.println(e.getMessage());
             }

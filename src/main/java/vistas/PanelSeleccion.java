@@ -31,5 +31,6 @@ public class PanelSeleccion extends JPanel {
                 panelExpendedor.cambiarProducto(Integer.parseInt(boton.getText()));
             });
         }
+        this.setPreferredSize(new Dimension(50, this.getHeight()));
     }
 }
