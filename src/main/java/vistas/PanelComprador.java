@@ -13,6 +13,8 @@ public class PanelComprador extends JPanel {
     private int monedaSelec = 0;
 
     private InfoProducto productoEnMaquina = null;
+
+    private int vuelto = 0;
     private PanelExpendedor expendedorActual;
     public void setExpendedorActual(PanelExpendedor exp) {
         this.expendedorActual = exp;
@@ -87,15 +89,30 @@ public class PanelComprador extends JPanel {
 
         // BOTONES DE COMPRAR Y RETIRAR PRODUCTO
         JButton comprar = new JButton("Comprar producto");
-        JButton retirar = new JButton("Retirar producto de máquina");
+        JButton retirar = new JButton("Retirar producto");
+        JButton retirarVuelto = new JButton("Retirar vuelto");
         panelInterraciones.add(comprar);
         panelInterraciones.add(retirar);
-        UtilsFrame.tamanoPorcentual(comprar, 0.4, 0.5);
-        UtilsFrame.tamanoPorcentual(retirar, 0.4, 0.5);
-        UtilsFrame.moverConCentroPorcentual(comprar, 0.275, 0.5);
-        UtilsFrame.moverConCentroPorcentual(retirar, 0.725, 0.5);
-        comprar.setVisible(true);
-        retirar.setVisible(true);
+        panelInterraciones.add(retirarVuelto);
+        UtilsFrame.tamanoPorcentual(comprar, 0.3, 0.4);
+        UtilsFrame.tamanoPorcentual(retirar, 0.3, 0.4);
+        UtilsFrame.tamanoPorcentual(retirarVuelto, 0.3, 0.4);
+        UtilsFrame.moverConCentroPorcentual(comprar, 0.175, 0.5);
+        UtilsFrame.moverConCentroPorcentual(retirar, 0.5, 0.5);
+        UtilsFrame.moverConCentroPorcentual(retirarVuelto, 0.825, 0.5);
+
+
+        // PANTALLA DE VUELTO
+        JLabel tituloVuelto = new JLabel("Vuelto:");
+        this.add(tituloVuelto);
+        UtilsFrame.boundsPorcentual(tituloVuelto, 0, 0.53, 1, 0.03);
+        tituloVuelto.setVerticalAlignment(SwingConstants.CENTER);
+        tituloVuelto.setHorizontalAlignment(SwingConstants.CENTER);
+        JPanel panelVuelto = new JPanel();
+        panelVuelto.setOpaque(false);
+        panelVuelto.setLayout(null);
+        this.add(panelVuelto);
+        UtilsFrame.boundsPorcentual(panelVuelto, 0, 0.56, 1, 0.125);
 
         // ACCION DE BOTON DE COMPRAR
         comprar.addActionListener((l) -> {
@@ -110,6 +127,8 @@ public class PanelComprador extends JPanel {
             }
             if (this.productoEnMaquina != null) return;
             try {
+                panelVuelto.removeAll();
+                panelVuelto.repaint();
                 System.out.println("Intentando comprar la opción " + this.expendedorActual.getProducto() + " con una moneda de $" + moneda.getValor() + "...");
                 Comprador comp = new Comprador(moneda, this.expendedorActual.getProducto(), this.expendedorActual.getExpendedor());
                 this.expendedorActual.getDepositosPanel().borrarUnProducto(this.expendedorActual.getProducto());
@@ -122,7 +141,7 @@ public class PanelComprador extends JPanel {
                 VistaProducto vista = new VistaProducto(prod, comp.getSerie());
                 this.expendedorActual.ponerPanelEnSalida(vista);
                 this.productoEnMaquina = prod;
-                System.out.println("Compra exitosa: " + prod.name() + "(serie " + comp.getSerie() + ")");
+                this.vuelto = comp.cuantoVuelto();
             } catch (Exception e) {
                 System.out.println(e.getMessage());
             }
@@ -140,7 +159,7 @@ public class PanelComprador extends JPanel {
         this.add(panelBolsillo);
         UtilsFrame.boundsPorcentual(panelBolsillo, 0, 0.33, 1, 0.2);
 
-
+        // BOTON RETITAR
         retirar.addActionListener((l) -> {
             if (this.productoEnMaquina == null) return;
             JComponent panel = this.expendedorActual.obtenerPanelEnSalida();
@@ -150,6 +169,32 @@ public class PanelComprador extends JPanel {
             this.expendedorActual.repaint();
             this.repaint();
             panelBolsillo.revalidate();
+        });
+
+        // BOTON RETIRAR VUELTO
+        retirarVuelto.addActionListener((l) -> {
+            panelVuelto.removeAll();
+            int monedasVuelto = 0;
+            while (vuelto > 0) {
+                PanelMoneda moneda;
+                int anchoMoneda2 = (int) (0.15*ancho);
+                if (vuelto >= 1500) {
+                    this.vuelto -= 1500;
+                    moneda = new PanelMoneda(anchoMoneda2, anchoMoneda2, 1500, "");
+                } else if (vuelto >= 1000) {
+                    this.vuelto -= 1000;
+                    moneda = new PanelMoneda(anchoMoneda2, anchoMoneda2, 1000, "");
+                } else if (vuelto >= 500) {
+                    this.vuelto -= 500;
+                    moneda = new PanelMoneda(anchoMoneda2, anchoMoneda2, 500, "");
+                } else {
+                    this.vuelto -= 100;
+                    moneda = new PanelMoneda(anchoMoneda2, anchoMoneda2, 100, "");
+                }
+                panelVuelto.add(moneda);
+                UtilsFrame.moverConCentroPorcentualAnchorPoint(moneda, 0.5, 0.5, (double) (monedasVuelto+1)/6.0, 0.5);
+                monedasVuelto++;
+            }
         });
     }
 }
